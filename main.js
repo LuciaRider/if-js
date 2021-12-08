@@ -43,3 +43,50 @@ for (let i = 0; i < array3.length; i++) {
         console.log(array3[i]);
     }
 }
+
+// Функция palindrome
+function isPalindrome (str) {
+    let strCompare = str.split('').reverse().join('');
+    if (strCompare.toLowerCase === str.toLowerCase) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isPalindrome ('Zorroz'));
+
+// Функция min(a, b) и функция max(a,b)
+function min (a, b) {
+    if (a < b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+console.log (min (1, 3));
+
+function min (a, b){
+	return (a < b) ? a: b;
+}
+console.log (min (-1, 3));
+
+function max (a, b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+console.log (max (1, 3));
+
+function max (a, b) {
+	return (a < b) ? a: b;
+}
+console.log (max (-1, 3));
+
+// Замена элементов массива 
+let array4 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10];
+let str = array4.join(" ");
+let rep = str.replace(/0/gi, 'zero');
+let res = rep.split(" ");
+console.log(res);
