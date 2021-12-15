@@ -45,15 +45,15 @@ for (let i = 0; i < array3.length; i++) {
 }
 
 // Функция palindrome
-function isPalindrome (str) {
+function isPalindrome(str) {
     let strCompare = str.split('').reverse().join('');
-    if (strCompare.toLowerCase === str.toLowerCase) {
+    if (strCompare.toLowerCase() === str.toLowerCase()) {
         return true;
     } else {
         return false;
     }
 }
-console.log(isPalindrome ('Zorroz'));
+console.log(isPalindrome('Zorroz'));
 
 // Функция min(a, b) и функция max(a,b)
 function min (a, b) {
@@ -84,9 +84,14 @@ function max (a, b) {
 }
 console.log (max (-1, 3));
 
-// Замена элементов массива 
-let array4 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10];
-let str = array4.join(" ");
-let rep = str.replace(/0/gi, 'zero');
-let res = rep.split(" ");
-console.log(res);
+// Замена элементов массива
+function randomArray(count, min, max) {
+    let arr = [];
+    let num;
+    for (let i = 0; i < count; count--) {
+        num = Math.floor(Math.random() * (max-min) + min);
+        arr.push(num);
+    }
+    return arr.join().replace(/0/gi, 'zero').split(',');
+}
+console.log(randomArray(10, 1, 100));
