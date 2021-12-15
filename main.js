@@ -104,42 +104,23 @@ function corSum(a, b) {
 };
 let sum = curry(corSum);
 console.log(sum(5)(2));
-module.exports = corSum;
+// module.exports = corSum;
 
 // Покрасьте абзацы по клику (событие click):
 const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
 const text1 = document.getElementById('text1');
 const text2 = document.getElementById('text2');
 const text3 = document.getElementById('text3');
-function firstColor(element) {
-    element.style.color = colors[0];
+function changeColor() {
+    let currentColorIndex = 0;
+    return function () {
+        this.style.color = colors[currentColorIndex];
+        currentColorIndex++;
+        if  (currentColorIndex === colors.length) {
+            currentColorIndex = 0;
+        }
+    }
 };
-function changeColor(element) {
-    if (element.style.color === colors[0]) {
-        element.style.color = colors[1];
-    } else if (element.style.color === colors[1]) {
-        element.style.color = colors[2];
-    } else if (element.style.color === colors[2]) {
-        element.style.color = colors[3];
-    } else if (element.style.color === colors[3]) {
-        element.style.color = colors[4];
-    } else element.style.color = colors[0];
-};
-text1.addEventListener('click', function () {
-    firstColor(text1);
-    text1.addEventListener('click', function () {
-        changeColor(text1);
-    });
-});
-text2.addEventListener('click', function () {
-    firstColor(text2);
-    text2.addEventListener('click', function () {
-        changeColor(text2);
-    });
-});
-text3.addEventListener('click', function () {
-    firstColor(text3);
-    text3.addEventListener('click', function () {
-        changeColor(text3);
-    });
-});
+text1.addEventListener('click', changeColor());
+text2.addEventListener('click', changeColor());
+text3.addEventListener('click', changeColor());
