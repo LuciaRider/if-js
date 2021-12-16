@@ -146,7 +146,7 @@ function formatDate(date) {
 
     return [day, month, year].join('.');
 }
-console.log(formatDate('2020-1-26'));
+console.log(formatDate('2020-11-26'));
 
 module.exports = formatDate;
 
