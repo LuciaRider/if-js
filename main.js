@@ -39,7 +39,7 @@ for (let i = 0; i < array2.length; i++) {
 // Дан массив [2, 5, 8, 15, 0, 6, 20, 3]. С помощью цикла for и оператора if выведите в консоль четные элементы массива.
 let array3 = [2, 5, 8, 15, 0, 6, 20, 3];
 for (let i = 0; i < array3.length; i++) {
-    if ((array3[i] % 2) == 0) {
+    if ((array3[i] % 2) === 0) {
         console.log(array3[i]);
     }
 }
@@ -63,12 +63,12 @@ function min (a, b) {
         return b;
     }
 }
-console.log(min (1, 3));
+console.log (min (1, 3));
 
 function min (a, b){
-    return (a < b) ? a : b;
+	return (a < b) ? a: b;
 }
-console.log(min (-1, 3));
+console.log (min (-1, 3));
 
 function max (a, b) {
     if (a > b) {
@@ -77,12 +77,12 @@ function max (a, b) {
         return b;
     }
 }
-console.log(max (1, 3));
+console.log (max (1, 3));
 
 function max (a, b) {
-    return (a < b) ? a : b;
+	return (a < b) ? a: b;
 }
-console.log(max (-1, 3));
+console.log (max (-1, 3));
 
 // Замена элементов массива
 function randomArray(count, min, max) {
