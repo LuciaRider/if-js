@@ -39,7 +39,65 @@ for (let i = 0; i < array2.length; i++) {
 // Дан массив [2, 5, 8, 15, 0, 6, 20, 3]. С помощью цикла for и оператора if выведите в консоль четные элементы массива.
 let array3 = [2, 5, 8, 15, 0, 6, 20, 3];
 for (let i = 0; i < array3.length; i++) {
-    if ((array3[i] % 2) == 0) {
+    if ((array3[i] % 2) === 0) {
         console.log(array3[i]);
     }
 }
+
+// Функция palindrome
+function isPalindrome(str) {
+    let strCompare = str.split('').reverse().join('');
+    if (strCompare.toLowerCase() === str.toLowerCase()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isPalindrome('Zorroz'));
+
+// Функция min(a, b) и функция max(a,b)
+function min (a, b) {
+    if (a < b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+console.log (min (1, 3));
+
+function min (a, b){
+	return (a < b) ? a: b;
+}
+console.log (min (-1, 3));
+
+function max (a, b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+console.log (max (1, 3));
+
+function max (a, b) {
+	return (a < b) ? a: b;
+}
+console.log (max (-1, 3));
+
+// Замена элементов массива
+function randomArray(count, min, max) {
+    let arr = [];
+    let num;
+    for (let i = 0; i < count; count--) {
+        num = Math.floor(Math.random() * (max-min) + min);
+        arr.push(num);
+    }
+    // return arr.join().replace(/0/gi, 'zero').split(',');
+      for (let z = 0; z<arr.length; z++) {
+        if ((arr[z] % 10 === 0)) {
+          arr[z] = arr[z].toString().replaceAll(0, 'zero')
+        }
+      }
+    return arr;
+}
+console.log(randomArray(10, 1, 100));
