@@ -101,3 +101,37 @@ function randomArray(count, min, max) {
     return arr;
 }
 console.log(randomArray(10, 1, 100));
+
+// Напишите функцию sum, которая возвращает сумму чисел следующим образом:
+function curry(f) {
+    return function (a) {
+        return function (b) {
+            return f(a, b);
+        };
+    };
+};
+function corSum(a, b) {
+    return a + b;
+};
+let sum = curry(corSum);
+console.log(sum(5)(2));
+// module.exports = corSum;
+
+// Покрасьте абзацы по клику (событие click):
+const colors = ['magenta', 'cyan', 'firebrick', 'springgreen', 'skyblue'];
+const text1 = document.getElementById('text1');
+const text2 = document.getElementById('text2');
+const text3 = document.getElementById('text3');
+function changeColor() {
+    let currentColorIndex = 0;
+    return function () {
+        this.style.color = colors[currentColorIndex];
+        currentColorIndex++;
+        if  (currentColorIndex === colors.length) {
+            currentColorIndex = 0;
+        }
+    }
+};
+text1.addEventListener('click', changeColor());
+text2.addEventListener('click', changeColor());
+text3.addEventListener('click', changeColor());
