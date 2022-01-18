@@ -84,12 +84,23 @@ function max(a, b) {
 }
 console.log(max(-1, 3));
 
-// Замена элементов массива 
-let array4 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10];
-let str = array4.join(" ");
-let rep = str.replace(/0/gi, 'zero');
-let res = rep.split(" ");
-console.log(res);
+// Замена элементов массива
+function randomArray(count, min, max) {
+    let arr = [];
+    let num;
+    for (let i = 0; i < count; count--) {
+        num = Math.floor(Math.random() * (max-min) + min);
+        arr.push(num);
+    }
+    // return arr.join().replace(/0/gi, 'zero').split(',');
+      for (let z = 0; z<arr.length; z++) {
+        if ((arr[z] % 10 === 0)) {
+          arr[z] = arr[z].toString().replaceAll(0, 'zero')
+        }
+      }
+    return arr;
+}
+console.log(randomArray(10, 1, 100));
 
 // Напишите функцию sum, которая возвращает сумму чисел следующим образом:
 function curry(f) {
