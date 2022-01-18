@@ -47,7 +47,7 @@ for (let i = 0; i < array3.length; i++) {
 // Функция palindrome
 function isPalindrome(str) {
     let strCompare = str.split('').reverse().join('');
-    if (strCompare.toLowerCase === str.toLowerCase) {
+    if (strCompare.toLowerCase() === str.toLowerCase()) {
         return true;
     } else {
         return false;
@@ -56,33 +56,33 @@ function isPalindrome(str) {
 console.log(isPalindrome('Zorroz'));
 
 // Функция min(a, b) и функция max(a,b)
-function min(a, b) {
+function min (a, b) {
     if (a < b) {
         return a;
     } else {
         return b;
     }
 }
-console.log(min(1, 3));
+console.log(min (1, 3));
 
-function min(a, b) {
+function min (a, b){
     return (a < b) ? a : b;
 }
-console.log(min(-1, 3));
+console.log(min (-1, 3));
 
-function max(a, b) {
+function max (a, b) {
     if (a > b) {
         return a;
     } else {
         return b;
     }
 }
-console.log(max(1, 3));
+console.log(max (1, 3));
 
-function max(a, b) {
+function max (a, b) {
     return (a < b) ? a : b;
 }
-console.log(max(-1, 3));
+console.log(max (-1, 3));
 
 // Замена элементов массива
 function randomArray(count, min, max) {
