@@ -101,6 +101,7 @@ function randomArray(count, min, max) {
     return arr;
 }
 console.log(randomArray(10, 1, 100));
+
 // Напишите функцию sum, которая возвращает сумму чисел следующим образом:
 function curry(f) {
     return function (a) {
