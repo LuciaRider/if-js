@@ -596,15 +596,3 @@ const colors2 = {
   document.getElementById("text1").addEventListener("click", changeStyle());
   document.getElementById("text2").addEventListener("click", changeStyle());
   document.getElementById("text3").addEventListener("click", changeStyle());
-
-
-
-
-
-
-
-
-
-
-
-
