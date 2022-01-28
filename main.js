@@ -452,13 +452,3 @@ countries.forEach(land => {
     })
 })
 console.log(countryCity);
-
-
-
-
-
-
-
-
-
-
