@@ -474,7 +474,12 @@ const obj3 = {
 const deepEqual = (object1, object2) => {
   const obj1 = JSON.stringify(object1);
   const obj2 = JSON.stringify(object2);
-  console.log(obj1.split('').sort().join('') === obj2.split('').sort().join(''));
-}
-deepEqual(obj1, obj2);
-deepEqual(obj1, obj3);
+  if (obj1.split('').sort().join('') === obj2.split('').sort().join('')) {
+    return true; 
+  } else {
+    return false;
+  }
+};
+
+console.log(deepEqual(obj1, obj2));
+console.log(deepEqual(obj1, obj3));
