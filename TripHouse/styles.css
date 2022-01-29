@@ -224,6 +224,184 @@ header {
 
 .children_input:focus {
     border: 3px solid #F5BD41;
+    position: relative;
+}
+
+/* .filter_wrapper {
+    width: 259px;
+    height: 158px;
+    background-color: #FFFFFF;
+    color: #333333;
+    position: absolute;
+    top: 76px;
+    right: 0;
+    border-radius: 8px;
+}
+
+.filter_content {
+    padding: 22px;
+}
+
+.filter_adults {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filter_text {
+    font-size: 16px;
+}
+
+.filter_plus-minus {
+    display: flex;
+    align-items: center;
+}
+
+.minus {
+    border: 1px solid #3077C6;
+    color: #3077C6;
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter_number {
+    margin: 0 19px;
+    font-size: 16px;
+}
+
+.plus {
+    border: 1px solid #3077C6;
+    color: #3077C6;
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter_children {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filter_rooms {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.children_minus, .rooms_minus {
+    border: 1px solid #CECECE;
+    color: #CECECE;
+} */
+
+.filter_wrapper {
+    width: 259px;
+    height: 256px;
+    background-color: #FFFFFF;
+    color: #333333;
+    position: absolute;
+    top: 76px;
+    right: 0;
+    border-radius: 8px;
+}
+
+.filter_content {
+    padding: 22px;
+}
+
+.filter_adults {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filter_text {
+    font-size: 16px;
+}
+
+.filter_plus-minus {
+    display: flex;
+    align-items: center;
+}
+
+.minus {
+    border: 1px solid #3077C6;
+    color: #3077C6;
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter_number {
+    margin: 0 19px;
+    font-size: 16px;
+}
+
+.plus {
+    border: 1px solid #3077C6;
+    color: #3077C6;
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter_children {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filter_rooms {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.children_minus, .rooms_minus {
+    border: 1px solid #CECECE;
+    color: #CECECE;
+}
+
+.child_age {
+    font-size: 12px;
+    margin-top: 28px;
+}
+
+.age_select {
+    border: 1px solid #3077C6;
+    width: 99px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-top: 12px;
+}
+
+.age_number {
+    font-size: 12px;
+}
+
+.age_vector {
+    width: 10px;
+    height: 6px;
 }
 
 .button {
@@ -346,17 +524,24 @@ header {
 .accent-blue {
     color: #3077C6;
     margin: 25px 0;
+    max-width: 296px;
 }
 
 .secondary {
     color: #BFBFBF;
+    max-width: 296px;
 }
 
 .arrow_right {
     position: absolute;
     right: -20px;
     top: 128px;
-    background-color: transparent;
+}
+
+.arrow_left {
+    position: absolute;
+    left: -20px;
+    top: 128px;
 }
 
 .arrow_right_adaptive {
