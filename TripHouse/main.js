@@ -1,5 +1,61 @@
-// Homes guests loves
+// Top-section
 
+const filterPeople = document.querySelector('.children');
+const filterPeopleOptions = document.querySelector('.filter_wrapper')
+filterPeople.addEventListener('click', function() {
+  filterPeopleOptions.style.display = 'block'
+});
+
+// Adults
+const filterAdultsPlus = document.querySelector('.filter_adults > .filter_plus-minus > .plus')
+const filterAdultsNumber = document.querySelector('.filter_adults > .filter_plus-minus > .filter_number')
+let adultsNumber = 1;
+filterAdultsPlus.addEventListener('click', function() {
+  adultsNumber++;
+  if (adultsNumber > 30) {
+    adultsNumber = 30
+  }
+  filterAdultsNumber.innerHTML = adultsNumber;
+})
+
+const filterAdultsMinus = document.querySelector('.filter_adults > .filter_plus-minus > .minus')
+filterAdultsMinus.addEventListener('click', function() {
+  adultsNumber--;
+  if (adultsNumber < 1) {
+    adultsNumber = 1
+  }
+  filterAdultsNumber.innerHTML = adultsNumber;
+})
+
+// Children
+const filterChildrenPlus = document.querySelector('.filter_children > .filter_plus-minus > .plus')
+const filterChildrenNumber = document.querySelector('.filter_children > .filter_plus-minus > .filter_number')
+let childrenNumber = 0;
+filterChildrenPlus.addEventListener('click', function() {
+  childrenNumber++;
+  console.log(childrenNumber)
+  if (childrenNumber > 30) {
+    childrenNumber = 30
+  }
+  filterChildrenNumber.innerHTML = childrenNumber;
+})
+
+const filterChildrenMinus = document.querySelector('.filter_children > .filter_plus-minus > .minus')
+const childAgeMoreOne = document.querySelector('.child_age_moreOne')
+filterChildrenMinus.addEventListener('click', function() {
+  childrenNumber--;
+  if (childrenNumber < 0) {
+    childrenNumber = 0
+    filterChildrenMinus.classList.add('children_minus_moreOne')
+    childAgeMoreOne.style.display = 'none'
+  } else {
+    filterChildrenMinus.classList.remove('children_minus_moreOne')  
+    childAgeMoreOne.style.display = 'block'
+  }
+  filterChildrenNumber.innerHTML = childrenNumber;
+})
+
+// Homes guests loves
 const data = [
     {
       name: 'Hotel Leopold',
@@ -51,60 +107,52 @@ const data = [
     },
   ];
 
-const homesContent = document.querySelector('.homes_content');
-function createCard1(data) {
-  return `
-  <div class="content_img col-xs-6 col-sm-6">
-    <img src="${data.imageUrl}" alt="${data.name}">
-    <p class="accent-blue">${data.name}</p>
-    <p class="secondary">${data.city}, ${data.country}</p>
-  </div>`
-};
-data.forEach((element, index) => {
-  if (index < 4) {
-    homesContent.insertAdjacentHTML('beforeend', createCard1(element))
+
+const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 4,
+  spaceBetween: 40,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    
+    560: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    },
+    
+    992: {
+      slidesPerView: 4,
+      spaceBetween: 40
+    }
   }
 });
 
-const homesImgArrowRight = (homesContent.getElementsByClassName('content_img')[3]);
-function createArrowRigt() {
-  return `<img class="arrow_right" src="./img/arrow-right.png" alt="arrow-right">`
+function createCard(data) {
+  return `
+    <div class="swiper-slide">
+      <div class="content_img">
+        <img src="${data.imageUrl}" alt="${data.name}">
+        <p class="accent-blue">${data.name}</p>
+        <p class="secondary">${data.city}, ${data.country}</p>
+      </div>
+    </div>`
 };
-homesImgArrowRight.insertAdjacentHTML('beforeend', createArrowRigt())
 
-const homesImgArrowLeft = (homesContent.getElementsByClassName('content_img')[0])
-function createArrowLeft() {
-  return `<img class="arrow_left" src="./img/arrow-left.png" alt="arrow-leftt">`
-};
-homesImgArrowLeft.insertAdjacentHTML('beforeend', createArrowLeft());
+console.log(swiper)
 
-const slider = document.querySelector('.homes_content');
-const slides = document.querySelectorAll('.content_img')
-const next = document.querySelector('.arrow_right');
-const prev = document.querySelector('.arrow_left');
-
-let position = 0;
-
-if (position === 0) {
-	prev.style.display = 'none';
-}
-
-// next.addEventListener('click', function() {
-// 	position	-= slides[0].offsetWidth;
-// 	if (position  < 0) prev.style.display = 'block'
-// 	if (position === -slider.offsetWidth + slides[0].offsetWidth) {
-// 		next.style.display = 'none';
-// 		position = -slider.offsetWidth + slides[0].offsetWidth;
-// 	}
-// 	slider.style.transform = `translateX(${position}px)`;
-// })
-
-// prev.addEventListener('click', function() {
-// 	position	+= slides[0].offsetWidth;
-// 	if (position >= -slider.offsetWidth + slides[0].offsetWidth) next.style.display = 'block';
-// 	if (position === 0) {
-// 		prev.style.display = 'none';
-// 		position = 0;
-// 	}
-// 	slider.style.transform = `translateX(${position}px)`;
-// })
+data.forEach((element) => {
+  swiper.appendSlide(createCard(element))
+});

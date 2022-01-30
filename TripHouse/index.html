@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Triphouse</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">        
@@ -217,41 +218,13 @@
                         </div>
                         <div class="children">
                             <input class="children_input" type="text" id="children-input" name="children-input" required value="2 Adults — 0 Children — 1 Room">
-                            <!-- <div class="filter_wrapper">
-                                <div class="filter_content">
-                                    <div class="filter_adults">
-                                        <p class="filter_text">Adults</p>
-                                        <div class="filter_plus-minus">
-                                            <p class="minus">-</p>
-                                            <p class="filter_number">2</p>
-                                            <p class="plus">+</p>
-                                        </div>
-                                    </div>
-                                    <div class="filter_children">
-                                        <p class="filter_text">Children</p>
-                                        <div class="filter_plus-minus">
-                                            <p class="minus children_minus">-</p>
-                                            <p class="filter_number">0</p>
-                                            <p class="plus">+</p>
-                                        </div>
-                                    </div>
-                                    <div class="filter_rooms">
-                                        <p class="filter_text">Rooms</p>
-                                        <div class="filter_plus-minus">
-                                            <p class="minus rooms_minus">-</p>
-                                            <p class="filter_number">1</p>
-                                            <p class="plus">+</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div class="filter_wrapper">
                                 <div class="filter_content">
                                     <div class="filter_adults">
                                         <p class="filter_text">Adults</p>
                                         <div class="filter_plus-minus">
                                             <p class="minus">-</p>
-                                            <p class="filter_number">2</p>
+                                            <p class="filter_number">1</p>
                                             <p class="plus">+</p>
                                         </div>
                                     </div>
@@ -271,12 +244,28 @@
                                             <p class="plus">+</p>
                                         </div>
                                     </div>
-                                    <p class="child_age">What is the age of the child you’re travelling with?</p>
-                                    <div class="age_select">
-                                        <p class="age_number">8 years old</p>
-                                        <svg class="age_vector">
-                                            <use href="#age_vector"></use>
-                                        </svg>
+                                    <div class="child_age_moreOne">
+                                        <p class="child_age">What is the age of the child you’re travelling with?</p>
+                                        <select class="age_select" name="age" id="age">
+                                                <option value="0">0 year old</option>
+                                                <option value="1">1 year old</option>
+                                                <option value="2">2 years old</option>
+                                                <option value="3">3 years old</option>
+                                                <option value="4">4 years old</option>
+                                                <option value="5">5 years old</option>
+                                                <option value="6">6 years old</option>
+                                                <option value="7">7 years old</option>
+                                                <option value="8">8 years old</option>
+                                                <option value="9">9 years old</option>
+                                                <option value="10">10 years old</option>
+                                                <option value="11">11 years old</option>
+                                                <option value="12">12 years old</option>
+                                                <option value="13">13 years old</option>
+                                                <option value="14">14 years old</option>
+                                                <option value="15">15 years old</option>
+                                                <option value="16">16 years old</option>
+                                                <option value="17">17 years old</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -377,30 +366,18 @@
                     <h2>Homes guests loves</h2>
                 </div>
                 <div class="homes_content">
-                    <!-- <div class="content_img col-xs-6 col-sm-6">
-                        <img src="./img/Hotel Leopold.png" alt="Hotel Leopold">
-                        <p class="accent-blue">Hotel Leopold</p>
-                        <p class="secondary">Saint Petersburg, Russia</p>
-                        <img class="arrow_left" src="./img/arrow-left.png" alt="arrow-left">
-                    </div>
-                    <div class="content_img col-xs-6 col-sm-6">
-                        <img src="./img/Apartment Sunshine.png" alt="Apartment Sunshine">
-                        <p class="accent-blue">Apartment Sunshine</p>
-                        <p class="secondary">Santa  Cruz de Tenerife, Spain</p>
-                        <img class="arrow_right_adaptive" src="./img/arrow-right.png" alt="arrow-right">
-                    </div>
-                    <div class="content_img">
-                        <img src="./img/Villa Kunerad.png" alt="Villa Kunerad">
-                        <p class="accent-blue">Villa Kunerad</p>
-                        <p class="secondary">Vysokie Tatry, Slowakia</p>
-                        <img class="arrow_right_3" src="./img/arrow-right.png" alt="arrow-right">
-                    </div>
-                    <div class="content_img">
-                        <img class="img_with_arrow" src="./img/Hostel Friendship.png" alt="Hostel Friendship">
-                        <p class="accent-blue">Hostel Friendship</p>
-                        <p class="secondary">Berlin, Germany</p>
-                        <img class="arrow_right" src="./img/arrow-right.png" alt="arrow-right">
-                    </div> -->
+                    <div class="container">
+                      <div class="swiper">
+                          <div class="swiper-wrapper">
+                          </div>
+                          <div class="swiper-button-prev">
+                            <img class="arrow_left" src="./img/arrow-left.png" alt="arrow-left">
+                          </div>
+                          <div class="swiper-button-next">
+                            <img src="./img/arrow-right.png" alt="arrow-right">
+                          </div>
+                        </div>
+                    </div>  
                 </div>
             </div>
         </section>
@@ -676,6 +653,7 @@
             <p class="footer_rights">© 2020 Triphouse, Inc. All rights reserved</p>
         </div>
     </footer>
-<script src="main.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

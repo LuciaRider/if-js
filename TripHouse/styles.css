@@ -227,7 +227,12 @@ header {
     position: relative;
 }
 
-/* .filter_wrapper {
+.child_age_moreOne {
+    display: none;
+}
+
+.filter_wrapper {
+    display: none;
     width: 259px;
     height: 158px;
     background-color: #FFFFFF;
@@ -301,9 +306,9 @@ header {
 .children_minus, .rooms_minus {
     border: 1px solid #CECECE;
     color: #CECECE;
-} */
+}
 
-.filter_wrapper {
+/* .filter_wrapper {
     width: 259px;
     height: 256px;
     background-color: #FFFFFF;
@@ -379,6 +384,11 @@ header {
     color: #CECECE;
 }
 
+.age_vector {
+    width: 10px;
+    height: 6px;
+} */
+
 .child_age {
     font-size: 12px;
     margin-top: 28px;
@@ -386,22 +396,19 @@ header {
 
 .age_select {
     border: 1px solid #3077C6;
-    width: 99px;
-    height: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
+    width: 100px;
+    padding: 8px 12px 8px 8px;
     margin-top: 12px;
-}
-
-.age_number {
     font-size: 12px;
-}
-
-.age_vector {
-    width: 10px;
-    height: 6px;
+    color: #333333;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    appearance: none;
+    outline: none;
+    background: url(img/filter_vector.svg) no-repeat; 
+    background-position: right .7em top 50%, 0 0;
+    background-size: .8em auto, 100%; 
 }
 
 .button {
@@ -512,13 +519,15 @@ header {
 }
 
 .homes_content {
-    display: flex;
-    justify-content: space-between;
+    position: relative;
 }
 
 .content_img {
-    position: relative;
     max-width: 300px;
+}
+
+.content_img img {
+    width: 100%;
 }
 
 .accent-blue {
@@ -532,16 +541,32 @@ header {
     max-width: 296px;
 }
 
-.arrow_right {
+.swiper-button-next {
     position: absolute;
-    right: -20px;
-    top: 128px;
+    top: 35%;
+    width: calc(var(--swiper-navigation-size)/ 44 * 23);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    z-index: 10;
+    cursor: pointer;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
 }
 
-.arrow_left {
+.swiper-button-prev {
     position: absolute;
-    left: -20px;
-    top: 128px;
+    top: 35%;
+    width: calc(var(--swiper-navigation-size)/ 44 * 13);
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
 }
 
 .arrow_right_adaptive {
@@ -961,7 +986,7 @@ footer {
 /* block 7 end - footer */
 
 @media only screen and (max-width: 1410px) {
-    .homes_content div:last-child {
+    /* .homes_content div:last-child {
         display: none;
     }
 
@@ -978,7 +1003,7 @@ footer {
         position: absolute;
         top: 120px;
         right: -25px;
-    }
+    } */
 
     .destinations_tabs button {
         padding: 13px 30px;
@@ -1218,29 +1243,6 @@ footer {
         height: 60px;
     }
 
-    .homes_content div:nth-child(3) {
-        display: none;
-    }
-
-    .homes_content {
-        justify-content: center;
-    }
-
-    .homes_content div:first-child {
-        margin-right: 50px;
-    }
-
-    .content_img:nth-child(2) {
-        position: relative;
-    }
-
-    .arrow_right_adaptive {
-        display: block;
-        position: absolute;
-        top: 120px;
-        right: -20px;
-    }
-
     .destinations_tabs {
         width: 100%;
     }
@@ -1318,33 +1320,9 @@ footer {
     .content_support svg {
         margin-bottom: 35px;
     }
-
-    .homes_content div:last-child {
-        display: none;
-    }
-
-    .content_img {
-        max-width: 250px;
-    }
-
-    .content_img p {
-        max-width: 250px;
-    }
-
-    .content_img img:first-child {
-        width: 250px;
-        height: 250px;
-    }
-
-    .content_img:nth-child(3) {
-        position: relative;
-    }
-
-    .arrow_right_3 {
-        display: block;
-        position: absolute;
-        top: 100px;
-        right: -25px;
+    
+    .accent-blue, .secondary {
+        font-size: 22px;
     }
 
     .destinations_regions div:last-child {
@@ -1451,34 +1429,6 @@ footer {
 
     .homes_title {
         margin-bottom: 80px;
-    }
-
-    .homes_content div:nth-child(3) {
-        display: none;
-    }
-
-    .content_img {
-        max-width: 250px;
-    }
-
-    .content_img img:not(:last-child) {
-        width: 100%;
-        height: auto;
-    }
-
-    .content_img p {
-        font-size: 18px;
-    }
-
-    .homes_content {
-        position: relative;
-    }
-
-    .arrow_right_adaptive {
-        display: block;
-        position: absolute;
-        top: 25%;
-        right: -10%;
     }
 
     .destinations_title {
@@ -1693,52 +1643,9 @@ footer {
     .homes_title {
         margin-bottom: 50px;
     }
-
-    .homes_content div:first-child {
-        margin-right: 30px;
-    }
-
-    .content_support svg {
-        margin-bottom: 25px;
-        width: 70px;
-        height: 70px;
-    }
-
-    .content_support, .content_support:nth-child(3) {
-        margin-bottom: 60px;
-    }
-
-    .content_support:last-child {
-        margin-bottom: 0;
-    }
-
-    .content_img {
-        max-width: 170px;
-    }
-
-    .content_img img:first-child {
-        width: 170px;
-        height: 170px;
-    }
-
-    .content_img p {
+    
+    .accent-blue, .secondary {
         font-size: 18px;
-        margin: 18px 0;
-    }
-
-    .content_img p:last-of-type {
-        margin-bottom: 0;
-    }
-
-    .advantages_content p {
-        font-size: 20px;
-    }
-
-    .arrow_right_adaptive {
-        top: 70px;
-        right: -19px;
-        width: 36px;
-        height: 36px;
     }
 
     .destinations_title {
@@ -2112,49 +2019,4 @@ footer {
     .homes_title {
         margin-bottom: 32px;
     }
-
-    .homes_content div:first-child {
-        margin-right: 16px;
-    }
-
-    .homes_content div:nth-child(3) {
-        display: none;
-    }
-
-    .homes_content div:nth-child(4) {
-        display: none;
-    }
-
-    .content_img {
-        max-width: 155px;
-    }
-
-    .content_img:nth-child(2) {
-        position: relative;
-    }
-
-    .content_img img:first-child {
-        width: 155px;
-        height: 155px;
-    }
-
-    .content_img p {
-        font-size: 12px;
-        margin: 8px 0 4px;
-    }
-
-    .content_img p:last-child {
-        margin: 0;
-    }
-
-    .arrow_right_adaptive {
-        display: block;
-        position: absolute;
-        width: 28px;
-        height: 28px;
-        right: -13px;
-        top: 69px;
-        background-color: transparent;
-    }
-
 }
