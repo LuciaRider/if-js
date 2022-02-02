@@ -243,83 +243,89 @@ header {
     border-radius: 8px;
 }
 
-.filter_content {
-    padding: 22px;
-}
-
-.filter_adults {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.filter_text {
-    font-size: 16px;
-}
-
-.filter_plus-minus {
-    display: flex;
-    align-items: center;
-}
-
-.minus {
-    border: 1px solid #3077C6;
-    color: #3077C6;
-    font-size: 18px;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.filter_number {
-    margin: 0 19px;
-    font-size: 16px;
-}
-
-.plus {
-    border: 1px solid #3077C6;
-    color: #3077C6;
-    font-size: 18px;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.filter_children {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.filter_rooms {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.children_minus, .rooms_minus {
-    border: 1px solid #CECECE;
-    color: #CECECE;
-}
-
-/* .filter_wrapper {
-    width: 259px;
+.filter_wrapper_select {
     height: 256px;
-    background-color: #FFFFFF;
-    color: #333333;
-    position: absolute;
-    top: 76px;
-    right: 0;
-    border-radius: 8px;
+}
+
+.filter_wrapper_select_without-text {
+    height: 222px;
 }
 
 .filter_content {
+    padding: 22px;
+}
+
+.filter_adults {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filter_text {
+    font-size: 16px;
+}
+
+.filter_plus-minus {
+    display: flex;
+    align-items: center;
+}
+
+.minus {
+    border: 1px solid #CECECE;
+    color: #CECECE;
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.filter_number {
+    margin: 0 19px;
+    font-size: 16px;
+    width: 19px;
+    text-align: center;
+}
+
+.plus {
+    border: 1px solid #3077C6;
+    color: #3077C6;
+    font-size: 18px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.plus_gray {
+    border: 1px solid #CECECE;
+    color: #CECECE;
+}
+
+.minus_blue {
+    border: 1px solid #3077C6;
+    color: #3077C6;
+}
+
+.filter_children {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filter_rooms {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .filter_content {
     padding: 22px;
 }
 
@@ -377,11 +383,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.children_minus, .rooms_minus {
-    border: 1px solid #CECECE;
-    color: #CECECE;
 }
 
 .age_vector {
@@ -409,6 +410,10 @@ header {
     background: url(img/filter_vector.svg) no-repeat; 
     background-position: right .7em top 50%, 0 0;
     background-size: .8em auto, 100%; 
+}
+
+.age_select_without-text {
+    margin-top: 28px;
 }
 
 .button {
