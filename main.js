@@ -145,6 +145,7 @@ text3.addEventListener('click', changeColor());
 преобразуйте эту дату в формат '26.11.2020';
 функция должна быть универсальной, т.е. принимать любую дату и приводить ее к поставленному в задании формату. */
 function formatDate(date) {
+<<<<<<< HEAD
   let d = new Date(date),
      month = '' + (d.getMonth() + 1),
      day = '' + d.getDate(),
@@ -156,6 +157,19 @@ function formatDate(date) {
      day = '0' + day;
 
  return [day, month, year].join('.');
+=======
+     let d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [day, month, year].join('.');
+>>>>>>> d0c31867be283bb5c3cdfc0470f2575b8c39aae9
 }
 console.log(formatDate('2020-11-26'));
 
@@ -167,6 +181,7 @@ module.exports = formatDate;
 по полученной строке найдите все совпадения в массива;
 верните список строк в формате: страна, город, отель. */
 const data = [
+<<<<<<< HEAD
  {
    country: 'Russia',
    city: 'Saint Petersburg',
@@ -452,3 +467,73 @@ countries.forEach(land => {
     })
 })
 console.log(countryCity);
+=======
+    {
+      country: 'Russia',
+      city: 'Saint Petersburg',
+      hotel: 'Hotel Leopold',
+    },
+    {
+      country: 'Spain',
+      city: 'Santa Cruz de Tenerife',
+      hotel: 'Apartment Sunshine',
+    },
+    {
+      country: 'Slowakia',
+      city: 'Vysokie Tatry',
+      hotel: 'Villa Kunerad',
+    },
+    {
+      country: 'Germany',
+      city: 'Berlin',
+      hotel: 'Hostel Friendship',
+    },
+    {
+      country: 'Indonesia',
+      city: 'Bali',
+      hotel: 'Ubud Bali Resort&SPA',
+    },
+    {
+      country: 'Netherlands',
+      city: 'Rotterdam',
+      hotel: 'King Kong Hostel',
+    },
+    {
+      country: 'Marocco',
+      city: 'Ourika',
+      hotel: 'Rokoko Hotel',
+    },
+    {
+      country: 'Germany',
+      city: 'Berlin',
+      hotel: 'Hotel Rehberge Berlin Mitte',
+    },
+  ];
+// keep it for myself
+  const array5 = [];
+  for (let i = 0; i < data.length; i++) {
+      array5.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
+  }
+  console.log(array5);
+  const array6 = [];
+  for (let j = 0; j < array5.length; j++) {
+      if (array5[j].includes('Saint Petersburg')) {
+          array6.push(array5[j])
+      };
+  };
+  console.log(array6);
+// 
+
+let input = 'Saint Petersburg';
+const arrData = [];
+const resultArr = [];
+for (let i = 0; i < data.length; i++) {
+    arrData.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
+}
+for (let j = 0; j < arrData.length; j++) {
+    if (arrData[j].includes(input)) {
+        resultArr.push(arrData[j])
+    };
+};
+console.log(resultArr);
+>>>>>>> d0c31867be283bb5c3cdfc0470f2575b8c39aae9
