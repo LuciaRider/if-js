@@ -145,6 +145,19 @@ text3.addEventListener('click', changeColor());
 преобразуйте эту дату в формат '26.11.2020';
 функция должна быть универсальной, т.е. принимать любую дату и приводить ее к поставленному в задании формату. */
 function formatDate(date) {
+<<<<<<< HEAD
+  let d = new Date(date),
+     month = '' + (d.getMonth() + 1),
+     day = '' + d.getDate(),
+     year = d.getFullYear();
+
+ if (month.length < 2) 
+     month = '0' + month;
+ if (day.length < 2) 
+     day = '0' + day;
+
+ return [day, month, year].join('.');
+=======
      let d = new Date(date),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
@@ -156,6 +169,7 @@ function formatDate(date) {
         day = '0' + day;
 
     return [day, month, year].join('.');
+>>>>>>> d0c31867be283bb5c3cdfc0470f2575b8c39aae9
 }
 console.log(formatDate('2020-11-26'));
 
@@ -167,6 +181,293 @@ module.exports = formatDate;
 по полученной строке найдите все совпадения в массива;
 верните список строк в формате: страна, город, отель. */
 const data = [
+<<<<<<< HEAD
+ {
+   country: 'Russia',
+   city: 'Saint Petersburg',
+   hotel: 'Hotel Leopold',
+ },
+ {
+   country: 'Spain',
+   city: 'Santa Cruz de Tenerife',
+   hotel: 'Apartment Sunshine',
+ },
+ {
+   country: 'Slowakia',
+   city: 'Vysokie Tatry',
+   hotel: 'Villa Kunerad',
+ },
+ {
+   country: 'Germany',
+   city: 'Berlin',
+   hotel: 'Hostel Friendship',
+ },
+ {
+   country: 'Indonesia',
+   city: 'Bali',
+   hotel: 'Ubud Bali Resort&SPA',
+ },
+ {
+   country: 'Netherlands',
+   city: 'Rotterdam',
+   hotel: 'King Kong Hostel',
+ },
+ {
+   country: 'Marocco',
+   city: 'Ourika',
+   hotel: 'Rokoko Hotel',
+ },
+ {
+   country: 'Germany',
+   city: 'Berlin',
+   hotel: 'Hotel Rehberge Berlin Mitte',
+ },
+];
+// keep it for myself
+const array5 = [];
+for (let i = 0; i < data.length; i++) {
+   array5.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
+}
+console.log(array5);
+const array6 = [];
+for (let j = 0; j < array5.length; j++) {
+   if (array5[j].includes('Saint Petersburg')) {
+       array6.push(array5[j])
+   };
+};
+console.log(array6);
+// 
+
+let input = 'Saint Petersburg';
+const arrData = [];
+const resultArr = [];
+for (let i = 0; i < data.length; i++) {
+ arrData.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
+}
+for (let j = 0; j < arrData.length; j++) {
+ if (arrData[j].includes(input)) {
+     resultArr.push(arrData[j])
+ };
+};
+console.log(resultArr);
+
+/* Функция palindrome (Слово палиндром может читаться справа-налево и слева-направо одинаково. Прим "шалаш".):
+создайте функцию palindrome, которая будет возвращать bool значение в зависимости от того, является ли переданное функции слово палиндромом или нет;
+теперь уже зная как работать со строками и массивами запишите реализацию этого метода в одну строку. */
+
+function isPalindrome(str) {
+    let strCompare = str.split('').reverse().join('');
+    if (strCompare.toLowerCase() === str.toLowerCase()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(isPalindrome('Zorroz'));
+
+/* Поиск объектов размещения:
+дан массив;
+напишите функцию поиска, которая будет принимать строку;
+по полученной строке найдите все совпадения в массиве по любому из полей;
+верните масиив строк в формате: страна, город, отель;
+зная как работать с массивами, сократите вашу функцию избавившись от цикла for. */
+
+const hotels = [
+    {
+      name: 'Hotel Leopold',
+      city: 'Saint Petersburg',
+      country: 'Russia',
+    },
+    {
+      name: 'Apartment Sunshine',
+      city: 'Santa Cruz de Tenerife',
+      country: 'Spain',
+    },
+    {
+      name: 'Villa Kunerad',
+      city: 'Vysokie Tatry',
+      country: 'Slowakia',
+    },
+    {
+      name: 'Hostel Friendship',
+      city: 'Berlin',
+      country: 'Germany',
+    },
+    {
+      name: 'Radisson Blu Hotel',
+      city: 'Kyiv',
+      country: 'Ukraine',
+    },
+    {
+      name: 'Paradise Hotel',
+      city: 'Guadalupe',
+      country: 'Mexico',
+    },
+    {
+      name: 'Hotel Grindewald',
+      city: 'Interlaken',
+      country: 'Switzerland',
+    },
+    {
+      name: 'The Andaman Resort',
+      city: 'Port Dickson',
+      country: 'Malaysia',
+    },
+    {
+      name: 'Virgin Hotel',
+      city: 'Chicago',
+      country: 'USA',
+    },
+    {
+      name: 'Grand Beach Resort',
+      city: 'Dubai',
+      country: 'United Arab Emirates',
+    },
+    {
+      name: 'Shilla Stay',
+      city: 'Seoul',
+      country: 'South Korea',
+    },
+    {
+      name: 'San Firenze Suites',
+      city: 'Florence',
+      country: 'Italy',
+    },
+    {
+      name: 'The Andaman Resort',
+      city: 'Port Dickson',
+      country: 'Malaysia',
+    },
+    {
+      name: 'Black Penny Villas',
+      city: 'BTDC, Nuca Dua',
+      country: 'Indonesia',
+    },
+    {
+      name: 'Koko Hotel',
+      city: 'Tokyo',
+      country: 'Japan',
+    },
+    {
+      name: 'Ramada Plaza',
+      city: 'Istanbul',
+      country: 'Turkey',
+    },
+    {
+      name: 'Waikiki Resort Hotel',
+      city: 'Hawaii',
+      country: 'USA',
+    },
+    {
+      name: 'Puro Hotel',
+      city: 'Krakow',
+      country: 'Poland',
+    },
+    {
+      name: 'Asma Suites',
+      city: 'Santorini',
+      country: 'Greece',
+    },
+    {
+      name: 'Cityden Apartments',
+      city: 'Amsterdam',
+      country: 'Netherlands',
+    },
+    {
+      name: 'Mandarin Oriental',
+      city: 'Miami',
+      country: 'USA',
+    },
+    {
+      name: 'Concept Terrace Hotel',
+      city: 'Rome',
+      country: 'Italy',
+    },
+    {
+      name: 'Ponta Mar Hotel',
+      city: 'Fortaleza',
+      country: 'Brazil',
+    },
+    {
+      name: 'Four Seasons Hotel',
+      city: 'Sydney',
+      country: 'Australia',
+    },
+    {
+      name: 'Le Meridien',
+      city: 'Nice',
+      country: 'France',
+    },
+    {
+      name: 'Apart Neptun',
+      city: 'Gdansk',
+      country: 'Poland',
+    },
+    {
+      name: 'Lux Isla',
+      city: 'Ibiza',
+      country: 'Spain',
+    },
+    {
+      name: 'Nox Hostel',
+      city: 'London',
+      country: 'UK',
+    },
+    {
+      name: 'Leonardo Vienna',
+      city: 'Vienna',
+      country: 'Austria',
+    },
+    {
+      name: 'Adagio Aparthotel',
+      city: 'Edinburgh',
+      country: 'UK',
+    },
+    {
+      name: 'Steigenberger Hotel',
+      city: 'Hamburg',
+      country: 'Germany',
+    },
+  ];
+
+const {name, city, country} = hotels;
+
+function search (str1) {
+      return hotels 
+      //.filter((input) => (input.name + input.city + input.country).includes(str1))
+      //.map(input => `${input.name}, ${input.city}, ${input.country}`);
+      
+      .filter(({name, city, country}) => `${name} + ${city} + ${country}`.includes(str1))
+      .map(({name, city, country}) => `${name}, ${city}, ${country}`);
+    }
+  console.log(search("Hotel"));
+
+/* Сопоставте страны с городами из массива:
+дан массив;
+напишите функцию, которая выберет все уникальные страны и сопоставит с ними города;
+в консоли должен быть выведен примерно такой результат:
+{
+   Australia: ['Sydney'],
+   Germany: ['Berlin', 'Hamburg'],
+   Italy: ['Florence', 'Rome'],
+   USA: ['Chicago', 'Hawaii', 'Miami'],
+   Ukraine: ['Kyiv']
+} */
+let countries = [];
+// hotels.forEach(element => console.log(element.country))
+let countryCity = {};
+hotels.forEach(element => countries.push(element.country))
+countries = [...new Set (countries)]
+countries.forEach(land => {
+    countryCity[land]=[];
+    Object.keys(hotels).forEach(element => {
+        if (hotels[element].country == land) {
+            countryCity[land].push(hotels[element].city)
+        }
+    })
+})
+console.log(countryCity);
+=======
     {
       country: 'Russia',
       city: 'Saint Petersburg',
@@ -235,3 +536,4 @@ for (let j = 0; j < arrData.length; j++) {
     };
 };
 console.log(resultArr);
+>>>>>>> d0c31867be283bb5c3cdfc0470f2575b8c39aae9
