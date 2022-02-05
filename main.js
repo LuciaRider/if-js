@@ -1,5 +1,8 @@
 /*
+<<<<<<< HEAD
+=======
 
+>>>>>>> d0c31867be283bb5c3cdfc0470f2575b8c39aae9
 // Работа с переменными
 let user = 'John Doe';
 console.log(user);
@@ -45,6 +48,447 @@ for (let i = 0; i < array3.length; i++) {
         console.log(array3[i]);
     }
 }
+<<<<<<< HEAD
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Напишите функция deepEqual, которая сможет сравнивать 2 объекта с разными уровнями вложенности.
+const obj1 = {
+  a: 'a',
+  b: {
+    a: 'a',
+    b: 'b',
+    c: {
+      a: 1,
+    },
+  },
+};
+const obj2 = {
+  b: {
+    c: {
+      a: 1,
+    },
+    b: 'b',
+    a: 'a',
+  },
+  a: 'a',
+};
+const obj3 = {
+  a: {
+    c: {
+      a: 'a',
+    },
+    b: 'b',
+    a: 'a',
+  },
+  b: 'b',
+};
+
+const deepEqual = (object1, object2) => {
+  const obj1 = JSON.stringify(object1);
+  const obj2 = JSON.stringify(object2);
+  if (obj1.split('').sort().join('') === obj2.split('').sort().join('')) {
+    return true; 
+  } else {
+    return false;
+  }
+};
+
+console.log(deepEqual(obj1, obj2));
+console.log(deepEqual(obj1, obj3));
+=======
 
 // Функция palindrome
 function isPalindrome(str) {
