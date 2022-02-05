@@ -1,3 +1,5 @@
+/*
+
 // Работа с переменными
 let user = 'John Doe';
 console.log(user);
@@ -136,6 +138,7 @@ text1.addEventListener('click', changeColor());
 text2.addEventListener('click', changeColor());
 text3.addEventListener('click', changeColor());
 
+<<<<<<< HEAD
 
 
 
@@ -596,3 +599,102 @@ const colors2 = {
   document.getElementById("text1").addEventListener("click", changeStyle());
   document.getElementById("text2").addEventListener("click", changeStyle());
   document.getElementById("text3").addEventListener("click", changeStyle());
+=======
+*/
+
+/* Преобразование формата даты:
+в переменной date лежит дата в формате '2020-11-26';
+преобразуйте эту дату в формат '26.11.2020';
+функция должна быть универсальной, т.е. принимать любую дату и приводить ее к поставленному в задании формату. */
+function formatDate(date) {
+     let d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [day, month, year].join('.');
+}
+console.log(formatDate('2020-11-26'));
+
+module.exports = formatDate;
+
+/* Поиск объектов размещения:
+дан массив;
+напишите функцию поиска, которая будет принимать строку;
+по полученной строке найдите все совпадения в массива;
+верните список строк в формате: страна, город, отель. */
+const data = [
+    {
+      country: 'Russia',
+      city: 'Saint Petersburg',
+      hotel: 'Hotel Leopold',
+    },
+    {
+      country: 'Spain',
+      city: 'Santa Cruz de Tenerife',
+      hotel: 'Apartment Sunshine',
+    },
+    {
+      country: 'Slowakia',
+      city: 'Vysokie Tatry',
+      hotel: 'Villa Kunerad',
+    },
+    {
+      country: 'Germany',
+      city: 'Berlin',
+      hotel: 'Hostel Friendship',
+    },
+    {
+      country: 'Indonesia',
+      city: 'Bali',
+      hotel: 'Ubud Bali Resort&SPA',
+    },
+    {
+      country: 'Netherlands',
+      city: 'Rotterdam',
+      hotel: 'King Kong Hostel',
+    },
+    {
+      country: 'Marocco',
+      city: 'Ourika',
+      hotel: 'Rokoko Hotel',
+    },
+    {
+      country: 'Germany',
+      city: 'Berlin',
+      hotel: 'Hotel Rehberge Berlin Mitte',
+    },
+  ];
+// keep it for myself
+  const array5 = [];
+  for (let i = 0; i < data.length; i++) {
+      array5.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
+  }
+  console.log(array5);
+  const array6 = [];
+  for (let j = 0; j < array5.length; j++) {
+      if (array5[j].includes('Saint Petersburg')) {
+          array6.push(array5[j])
+      };
+  };
+  console.log(array6);
+// 
+
+let input = 'Saint Petersburg';
+const arrData = [];
+const resultArr = [];
+for (let i = 0; i < data.length; i++) {
+    arrData.push(`${data[i].country}, ${data[i].city}, ${data[i].hotel}`);
+}
+for (let j = 0; j < arrData.length; j++) {
+    if (arrData[j].includes(input)) {
+        resultArr.push(arrData[j])
+    };
+};
+console.log(resultArr);
+>>>>>>> d0c31867be283bb5c3cdfc0470f2575b8c39aae9
