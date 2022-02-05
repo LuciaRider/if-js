@@ -5,12 +5,44 @@ filterPeople.addEventListener('click', function() {
   filterPeopleOptions.style.display = 'block'
 });
 
+// Closing the filter when clicking outside it
+const inputChildrenClick = document.querySelector('.children');
+const chilndrenFilters = document.querySelector('.filter_wrapper');
+const toggleChilndrenFilters = function() {
+  chilndrenFilters.classList.toggle('open');
+}
+
+const toggleChilndrenFiltersAdd = function() {
+  chilndrenFilters.classList.add('open')
+}
+
+inputChildrenClick.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleChilndrenFilters();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_chilndrenFilters = target == chilndrenFilters || chilndrenFilters.contains(target);
+    const its_inputChildrenClick = target == inputChildrenClick;
+    const chilndrenFilters_is_active = chilndrenFilters.classList.contains('open');
+    
+    if (!its_chilndrenFilters && !its_inputChildrenClick && chilndrenFilters_is_active) {
+        toggleChilndrenFilters();
+    }
+});
+
+document.querySelector('.age_select').addEventListener('click', function() {
+  toggleChilndrenFiltersAdd();
+})
+
 // Adults
 const filterAdultsMinus = document.querySelector('.filter_adults > .filter_plus-minus > .minus')
 const filterAdultsPlus = document.querySelector('.filter_adults > .filter_plus-minus > .plus')
 const filterAdultsNumber = document.querySelector('.filter_adults > .filter_plus-minus > .filter_number')
 let adultsNumber = 1;
 filterAdultsPlus.addEventListener('click', function() {
+  toggleChilndrenFilters();
   adultsNumber++;
   if (adultsNumber >= 30) {
     adultsNumber = 30
@@ -25,6 +57,7 @@ filterAdultsPlus.addEventListener('click', function() {
 })
 
 filterAdultsMinus.addEventListener('click', function() {
+  toggleChilndrenFilters();
   adultsNumber--;
   if (adultsNumber < 1) {
     adultsNumber = 1
@@ -47,9 +80,10 @@ const filterChildrenPlus = document.querySelector('.filter_children > .filter_pl
 const filterChildrenNumber = document.querySelector('.filter_children > .filter_plus-minus > .filter_number')
 let childrenNumber = 0;
 filterChildrenPlus.addEventListener('click', function() {
+  toggleChilndrenFilters();
   childrenNumber++;
-  if (childrenNumber >= 17) {
-    childrenNumber = 17
+  if (childrenNumber >= 10) {
+    childrenNumber = 10
     filterChildrenPlus.classList.add('plus_gray')
   } else {
     filterChildrenPlus.classList.remove('plus_gray')
@@ -68,6 +102,7 @@ filterChildrenPlus.addEventListener('click', function() {
 })
 
 filterChildrenMinus.addEventListener('click', function() {
+  toggleChilndrenFilters();
   childrenNumber--;
   if (childrenNumber <= 0) {
     childrenNumber = 0
@@ -78,7 +113,7 @@ filterChildrenMinus.addEventListener('click', function() {
     document.querySelector('.filter_wrapper').classList.remove('filter_wrapper_select')
     document.querySelector('.age_select').classList.remove('age_select_without-text')
   } 
-  if (childrenNumber < 17) {
+  if (childrenNumber < 10) {
     filterChildrenPlus.classList.remove('plus_gray')
   }
   filterChildrenNumber.innerHTML = childrenNumber;
@@ -90,6 +125,7 @@ const filterRoomsPlus = document.querySelector('.filter_rooms > .filter_plus-min
 const filterRoomsNumber = document.querySelector('.filter_rooms > .filter_plus-minus > .filter_number')
 let roomsNumber = 1;
 filterRoomsPlus.addEventListener('click', function() {
+  toggleChilndrenFilters();
   roomsNumber++;
   if (roomsNumber >= 30) {
     roomsNumber = 30
@@ -104,6 +140,7 @@ filterRoomsPlus.addEventListener('click', function() {
 })
 
 filterRoomsMinus.addEventListener('click', function() {
+  toggleChilndrenFilters();
   roomsNumber--;
   if (roomsNumber < 1) {
     roomsNumber = 1
@@ -119,6 +156,91 @@ filterRoomsMinus.addEventListener('click', function() {
   filterRoomsNumber.innerHTML = roomsNumber;
 })
 
+// Top-section_adaptive
+
+const childrenInput = document.querySelector('.properties_children_adaptive')
+childrenInput.addEventListener('click', function() {
+  document.querySelector('.filter_wrapper_adaptive').style.display = 'block'
+})
+
+const filterChildrenMinusAdaptive = document.querySelector('.minus_adaptive')
+const filterChildrenPlusAdaptive = document.querySelector('.plus_adaptive')
+const filterChildrenNumberAdaptive = document.querySelector('.filter_number_adaptive')
+let childrenNumberAdaptive = 0;
+let childrenCount = document.getElementById('children_input_adaptive')
+let childrenCountAttrib = childrenCount.getAttribute('value')
+// console.log(childrenCountAttrib)
+filterChildrenPlusAdaptive.addEventListener('click', function() {
+  // toggleChilndrenFiltersAdaptive();
+  childrenNumberAdaptive++;
+  if (childrenNumberAdaptive >= 10) {
+    childrenNumberAdaptive = 10
+    filterChildrenPlusAdaptive.classList.add('plus_gray')
+  } else {
+    filterChildrenPlusAdaptive.classList.remove('plus_gray')
+  }
+  if (childrenNumberAdaptive >= 1) {
+    filterChildrenMinusAdaptive.classList.add('minus_blue')
+    document.querySelector('.child_age_moreOne_adaptive').style.display = 'block'
+    document.querySelector('.filter_wrapper_adaptive').classList.add('filter_wrapper_select')
+  } 
+  if (childrenNumberAdaptive >= 2) {
+    document.querySelector('.child_age_adaptive').style.display = 'none'
+    document.querySelector('.age_select_adaptive').classList.add('age_select_without-text')
+    document.querySelector('.filter_wrapper_adaptive').classList.add('filter_wrapper_select_without-text')
+  }
+  filterChildrenNumberAdaptive.innerHTML = childrenNumberAdaptive;
+  childrenCountAttrib = childrenNumberAdaptive;
+})
+
+filterChildrenMinusAdaptive.addEventListener('click', function() {
+  // toggleChilndrenFiltersAdaptive();
+  childrenNumberAdaptive--;
+  if (childrenNumberAdaptive <= 0) {
+    childrenNumberAdaptive = 0
+    filterChildrenMinusAdaptive.classList.remove('minus_blue')
+    document.querySelector('.child_age_moreOne_adaptive').style.display = 'none'
+    document.querySelector('.child_age_adaptive').style.display = 'block'
+    document.querySelector('.filter_wrapper_adaptive').classList.remove('filter_wrapper_select_without-text')
+    document.querySelector('.filter_wrapper_adaptive').classList.remove('filter_wrapper_select')
+    document.querySelector('.age_select_adaptive').classList.remove('age_select_without-text')
+  } 
+  if (childrenNumberAdaptive < 10) {
+    filterChildrenPlusAdaptive.classList.remove('plus_gray')
+  }
+  filterChildrenNumberAdaptive.innerHTML = childrenNumberAdaptive;
+})
+
+// Closing the filter when clicking outside it
+const inputChildrenClickAdaptive = document.querySelector('.properties_children_adaptive');
+const chilndrenFiltersAdaptive = document.querySelector('.filter_wrapper_adaptive');
+const toggleChilndrenFiltersAdaptive = function() {
+  chilndrenFiltersAdaptive.classList.toggle('open');
+}
+
+const toggleChilndrenFiltersAddAdaptive = function() {
+  chilndrenFiltersAdaptive.classList.add('open')
+}
+
+inputChildrenClickAdaptive.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleChilndrenFiltersAdaptive();
+});
+
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_chilndrenFiltersAdaptive = target == chilndrenFiltersAdaptive || chilndrenFiltersAdaptive.contains(target);
+    const its_inputChildrenClickAdaptive = target == inputChildrenClickAdaptive;
+    const chilndrenFiltersAdaptive_is_active = chilndrenFiltersAdaptive.classList.contains('open');
+    
+    if (!its_chilndrenFiltersAdaptive && !its_inputChildrenClickAdaptive && chilndrenFiltersAdaptive_is_active) {
+        togglechilndrenFiltersAdaptive();
+    }
+});
+
+document.querySelector('.age_select_adaptive').addEventListener('click', function() {
+  toggleChilndrenFiltersAddAdaptive();
+})
 
 // Homes guests loves
 const data = [

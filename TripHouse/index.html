@@ -217,7 +217,8 @@
                             <label class="check-in_label" for="check-in-input">Check-in — Check-out</label><br>
                         </div>
                         <div class="children">
-                            <input class="children_input" type="text" id="children-input" name="children-input" required value="2 Adults — 0 Children — 1 Room">
+                            <div class="children_wrapper">
+                                <input class="children_input" type="text" id="children-input" name="children-input" required value="1 Adults — 0 Children — 1 Room">
                             <div class="filter_wrapper">
                                 <div class="filter_content">
                                     <div class="filter_adults">
@@ -269,6 +270,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </div>
                         </div>
                         <div class="button">
                             <button class="form_button">Search</button>
@@ -294,7 +296,7 @@
                             </div>
                             <div class="destination_properties_adaptive">
                                 <div class="properties_adults_adaptive">
-                                    <input class="adults_input_adaptive" type="text" id="adults_input_adaptive" name="adults_input_adaptive" required value="2">
+                                    <input class="adults_input_adaptive" type="text" id="adults_input_adaptive" name="adults_input_adaptive" required value="1">
                                     <label class="adults_label_adaptive" for="adults_input_adaptive">Adults</label>
                                 </div>
                                 <div class="properties_children_adaptive">
@@ -311,6 +313,41 @@
                             </div>
                         </div>
                     </form>
+                    <div class="filter_wrapper_adaptive">
+                        <div class="filter_content">
+                            <div class="filter_children">
+                                <p class="filter_text">Children</p>
+                                <div class="filter_plus-minus">
+                                    <p class="minus minus_adaptive">-</p>
+                                    <p class="filter_number filter_number_adaptive">0</p>
+                                    <p class="plus plus_adaptive">+</p>
+                                </div>
+                            </div>
+                            <div class="child_age_moreOne child_age_moreOne_adaptive">
+                                <p class="child_age child_age_adaptive">What is the age of the child you’re travelling with?</p>
+                                <select class="age_select age_select_adaptive" name="age" id="age">
+                                        <option value="0">0 year old</option>
+                                        <option value="1">1 year old</option>
+                                        <option value="2">2 years old</option>
+                                        <option value="3">3 years old</option>
+                                        <option value="4">4 years old</option>
+                                        <option value="5">5 years old</option>
+                                        <option value="6">6 years old</option>
+                                        <option value="7">7 years old</option>
+                                        <option value="8">8 years old</option>
+                                        <option value="9">9 years old</option>
+                                        <option value="10">10 years old</option>
+                                        <option value="11">11 years old</option>
+                                        <option value="12">12 years old</option>
+                                        <option value="13">13 years old</option>
+                                        <option value="14">14 years old</option>
+                                        <option value="15">15 years old</option>
+                                        <option value="16">16 years old</option>
+                                        <option value="17">17 years old</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="top-section_bottom-icons">
                     <a href="https://play.google.com/store" target="_blank">
