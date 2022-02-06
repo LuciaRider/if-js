@@ -218,8 +218,22 @@
                         </div>
                         <div class="children">
                             <div class="children_wrapper">
-                                <input class="children_input" type="text" id="children-input" name="children-input" required value="1 Adults — 0 Children — 1 Room">
-                            <div class="filter_wrapper">
+                                <!-- <input class="children_input" type="text" id="children-input" name="children-input" required value="1 Adults — 0 Children — 1 Room"> -->
+                                <div class="input_adults">
+                                    <span id="input_adults_count">1</span>
+                                    <span>Adults</span>
+                                </div>
+                                <span class="dash"></span>
+                                <div class="input_children">
+                                    <span id="input_children_count">0</span>
+                                    <span>Children</span>
+                                </div>
+                                <span class="dash"></span>
+                                <div class="input_rooms">
+                                    <span id="input_rooms_count">1</span>
+                                    <span>Rooms</span>
+                                </div>
+                                <div class="filter_wrapper">
                                 <div class="filter_content">
                                     <div class="filter_adults">
                                         <p class="filter_text">Adults</p>
@@ -247,26 +261,7 @@
                                     </div>
                                     <div class="child_age_moreOne">
                                         <p class="child_age">What is the age of the child you’re travelling with?</p>
-                                        <select class="age_select" name="age" id="age">
-                                                <option value="0">0 year old</option>
-                                                <option value="1">1 year old</option>
-                                                <option value="2">2 years old</option>
-                                                <option value="3">3 years old</option>
-                                                <option value="4">4 years old</option>
-                                                <option value="5">5 years old</option>
-                                                <option value="6">6 years old</option>
-                                                <option value="7">7 years old</option>
-                                                <option value="8">8 years old</option>
-                                                <option value="9">9 years old</option>
-                                                <option value="10">10 years old</option>
-                                                <option value="11">11 years old</option>
-                                                <option value="12">12 years old</option>
-                                                <option value="13">13 years old</option>
-                                                <option value="14">14 years old</option>
-                                                <option value="15">15 years old</option>
-                                                <option value="16">16 years old</option>
-                                                <option value="17">17 years old</option>
-                                        </select>
+                                        <div class="child_age_selects"></div>
                                     </div>
                                 </div>
                             </div>
@@ -296,16 +291,16 @@
                             </div>
                             <div class="destination_properties_adaptive">
                                 <div class="properties_adults_adaptive">
-                                    <input class="adults_input_adaptive" type="text" id="adults_input_adaptive" name="adults_input_adaptive" required value="1">
-                                    <label class="adults_label_adaptive" for="adults_input_adaptive">Adults</label>
+                                    <div class="adults_input_adaptive">Adults</div>
+                                    <div class="adults_label_adaptive">0</div>
                                 </div>
                                 <div class="properties_children_adaptive">
-                                    <input class="children_input_adaptive" type="text" id="children_input_adaptive" name="children_input_adaptive" required value="0">
-                                    <label class="children_label_adaptive" for="children_input_adaptive">Children</label>
+                                    <div class="children_input_adaptive">Children</div>
+                                    <div class="children_label_adaptive">0</div>
                                 </div>
                                 <div class="properties_rooms_adaptive">
-                                    <input class="rooms_input_adaptive" type="text" id="rooms_input_adaptive" name="rooms_input_adaptive" required value="1">
-                                    <label class="rooms_label_adaptive" for="rooms_input_adaptive">Rooms</label>
+                                    <div class="rooms_input_adaptive">Rooms</div>
+                                    <div class="rooms_label_adaptive">1</div>
                                 </div>
                             </div>
                             <div class="button_adaptive">
@@ -325,26 +320,6 @@
                             </div>
                             <div class="child_age_moreOne child_age_moreOne_adaptive">
                                 <p class="child_age child_age_adaptive">What is the age of the child you’re travelling with?</p>
-                                <select class="age_select age_select_adaptive" name="age" id="age">
-                                        <option value="0">0 year old</option>
-                                        <option value="1">1 year old</option>
-                                        <option value="2">2 years old</option>
-                                        <option value="3">3 years old</option>
-                                        <option value="4">4 years old</option>
-                                        <option value="5">5 years old</option>
-                                        <option value="6">6 years old</option>
-                                        <option value="7">7 years old</option>
-                                        <option value="8">8 years old</option>
-                                        <option value="9">9 years old</option>
-                                        <option value="10">10 years old</option>
-                                        <option value="11">11 years old</option>
-                                        <option value="12">12 years old</option>
-                                        <option value="13">13 years old</option>
-                                        <option value="14">14 years old</option>
-                                        <option value="15">15 years old</option>
-                                        <option value="16">16 years old</option>
-                                        <option value="17">17 years old</option>
-                                </select>
                             </div>
                         </div>
                     </div>

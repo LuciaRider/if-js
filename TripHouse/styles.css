@@ -212,7 +212,7 @@ header {
     border-radius: 8px;
 }
 
-.children_input {
+/* .children_input {
     height: 64px;
     width: 100%;
     border-radius: 8px;
@@ -225,23 +225,46 @@ header {
 .children_input:focus {
     border: 3px solid #F5BD41;
     position: relative;
+} */
+
+.children_wrapper {
+    height: 64px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 21px 26px;
+    font-size: 18px;
+    color: #383838;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.child_age_moreOne {
-    display: none;
+.children_wrapper:focus {
+    border: 3px solid #F5BD41;
+    position: relative;
 }
+
+.dash {
+    width: 12px;
+    border: 1px solid #383838;
+}
+
+/* .child_age_moreOne {
+    display: none;
+} */
 
 .filter_wrapper {
     visibility: hidden;
     opacity: 0;
     width: 259px;
-    height: 158px;
     background-color: #FFFFFF;
     color: #333333;
     position: absolute;
     top: 76px;
     right: 0;
     border-radius: 8px;
+    box-shadow: 0 0 4px gray;
 }
 
 .filter_wrapper.open {
@@ -251,14 +274,6 @@ header {
 
 .filter_wrapper_adaptive {
     display: none;
-}
-
-.filter_wrapper_select {
-    height: 256px;
-}
-
-.filter_wrapper_select_without-text {
-    height: 222px;
 }
 
 .filter_content {
@@ -403,6 +418,7 @@ header {
 .child_age {
     font-size: 12px;
     margin-top: 28px;
+    display: none;
 }
 
 .age_select {
@@ -1171,38 +1187,34 @@ footer {
 
     .destination_properties_adaptive {
         display: flex;
-        position: relative;
         background-color: #FFFFFF;
         border-radius: 4px;
         margin-top: 8px;
     }
 
     .properties_adults_adaptive {
-        padding: 8px;
-        padding-top: 30px;
+        padding-left: 8px;
+        padding-top: 6px;
+        padding-bottom: 6px;
         background-color: #FFFFFF;
-        position: relative;
         border-radius: 4px 0 0 4px;
         width: 33.33%;
         border-right: 1px solid #BFBFBF;
     }
 
-    .adults_input_adaptive {
+    .adults_label_adaptive {
         font-weight: 500;
         font-size: 18px;
-        outline: none;
         width: 100%;
+        color: #383838;
     }
 
-    .adults_label_adaptive {
-        position: absolute;
+    .adults_input_adaptive {
         font-size: 15px;
         color: #383838;
-        bottom: 55%;
-        left: 3%;
     }
 
-    .adults_input_adaptive:focus {
+    .adults_label_adaptive:focus {
         border: 3px solid #F5BD41;
         border-radius: 8px;
         height: 30px;
@@ -1210,31 +1222,28 @@ footer {
     }
 
     .properties_children_adaptive {
-        padding: 8px;
-        padding-top: 30px;
+        padding-left: 8px;
+        padding-top: 6px;
+        padding-bottom: 6px;
         background-color: #FFFFFF;
-        position: relative;
         border-radius: 4px 0 0 4px;
         width: 33.33%;
         border-right: 1px solid #BFBFBF;
     }
 
-    .children_input_adaptive {
+    .children_label_adaptive {
         font-weight: 500;
         font-size: 18px;
-        outline: none;
         width: 100%;
+        color: #383838;
     }
 
-    .children_label_adaptive {
-        position: absolute;
+    .children_input_adaptive {
         font-size: 15px;
         color: #383838;
-        bottom: 55%;
-        left: 3%;
     }
 
-    .children_input_adaptive:focus {
+    .children_label_adaptive:focus {
         border: 3px solid #F5BD41;
         border-radius: 8px;
         height: 30px;
@@ -1242,30 +1251,28 @@ footer {
     }
 
     .properties_rooms_adaptive {
-        padding: 8px;
-        padding-top: 30px;
+        padding-left: 8px;
+        padding-top: 6px;
+        padding-bottom: 6px;
         background-color: #FFFFFF;
-        position: relative;
-        border-radius: 4px;
-        width: 33.34%;
-    }
-
-    .rooms_input_adaptive {
-        font-weight: 500;
-        font-size: 18px;
-        outline: none;
-        width: 100%;
+        border-radius: 4px 0 0 4px;
+        width: 33.33%;
+        border-right: 1px solid #BFBFBF;
     }
 
     .rooms_label_adaptive {
-        position: absolute;
-        font-size: 15px;
+        font-weight: 500;
+        font-size: 18px;
+        width: 100%;
         color: #383838;
-        bottom: 55%;
-        left: 3%;
     }
 
-    .rooms_input_adaptive:focus {
+    .rooms_input_adaptive {
+        font-size: 15px;
+        color: #383838;
+    }
+
+    .rooms_label_adaptive:focus {
         border: 3px solid #F5BD41;
         border-radius: 8px;
         height: 30px;
