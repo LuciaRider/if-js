@@ -223,8 +223,17 @@ filterRoomsMinus.addEventListener('click', function() {
   filterRoomsNumber.innerHTML = roomsNumber;
 })
 
-// Top-section_adaptive
+12.2
+const formButton = document.querySelector('.form_button');
+formButton.addEventListener('click', function() {
+  const childrenFetchParam = [2, 3].join(',');
+  const search = document.querySelector('.destination_input').value;
+  fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${search}&adults=${adultsNumber}&children=${childrenFetchParam}&rooms=${roomsNumber}`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+})
 
+// Top-section_adaptive
 
 // Homes guests loves
 // const data = [
