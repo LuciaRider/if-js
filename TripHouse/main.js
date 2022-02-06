@@ -226,7 +226,7 @@ filterRoomsMinus.addEventListener('click', function() {
 12.2
 const formButton = document.querySelector('.form_button');
 formButton.addEventListener('click', function() {
-  const childrenFetchParam = [2, 3].join(',');
+  const childrenFetchParam = [].join(',');
   const search = document.querySelector('.destination_input').value;
   fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${search}&adults=${adultsNumber}&children=${childrenFetchParam}&rooms=${roomsNumber}`)
   .then(response => response.json())
