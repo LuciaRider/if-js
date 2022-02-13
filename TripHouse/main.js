@@ -147,6 +147,7 @@ filterChildrenPlus.addEventListener('click', function() {
   }
   filterChildrenNumber.innerHTML = childrenNumber;
   childrenCounter.innerHTML = childrenNumber;
+  console.log(childrenNumber)
 })
 
 filterChildrenMinus.addEventListener('click', function() {
@@ -223,7 +224,7 @@ filterRoomsMinus.addEventListener('click', function() {
   filterRoomsNumber.innerHTML = roomsNumber;
 })
 
-12.2
+// 12.2
 const formButton = document.querySelector('.form_button');
 formButton.addEventListener('click', function() {
   const childrenFetchParam = [].join(',');
