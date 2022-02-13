@@ -1,47 +1,20 @@
 // Top-section
 const filterPeople = document.querySelector('.children');
 const filterPeopleOptions = document.querySelector('.filter_wrapper')
-filterPeople.addEventListener('click', function() {
-  filterPeopleOptions.style.display = 'block'
+
+filterPeople.addEventListener('click', (e)  => {
+  if (!e.target.closest('.filter_wrapper')) {
+    filterPeopleOptions.classList.toggle('open');
+  }
 });
 
-// Closing the filter when clicking outside it
-const inputChildrenClick = document.querySelector('.children');
-const chilndrenFilters = document.querySelector('.filter_wrapper');
-const toggleChilndrenFilters = function(e) {
-  e.stopPropagation ()
-  chilndrenFilters.classList.add('open');
-}
 
-document.querySelector('body').addEventListener('click', function(e) {
-  if (!e.target.closest('.filter_wrapper') && chilndrenFilters.classList.contains('open')) {
-    chilndrenFilters.classList.remove('open');
-  }
-})
-
-const toggleChilndrenFiltersAdd = function(e) {
-  console.log(e.target)
-  document.querySelector('.filter_wrapper').classList.add('open')
-}
-
-// document.querySelector('.age_select').addEventListener('click', function() {
-//   toggleChilndrenFiltersAdd();
-// })
-
-inputChildrenClick.addEventListener('click', toggleChilndrenFilters);
-
-// document.addEventListener('click', function(e) {
-//     const target = e.target;
-//     console.log(target)
-//     const its_chilndrenFilters = target == chilndrenFilters || chilndrenFilters.contains(target);
-//     // const its_inputChildrenClick = target == inputChildrenClick;
-//     const chilndrenFilters_is_active = chilndrenFilters.classList.contains('open');
-    
-//     // if (!its_chilndrenFilters && !its_inputChildrenClick && chilndrenFilters_is_active) {
-//     if (!its_chilndrenFilters && chilndrenFilters_is_active) {
-//         // toggleChilndrenFilters();
-//     }
-// });
+window.addEventListener('click', (e) => {
+  const check = e.target.closest('.filter_wrapper') || e.target.closest('.children');
+  if (!check && filterPeopleOptions.classList.contains('open')) {
+    filterPeopleOptions.classList.remove('open');
+  } 
+});
 
 // Adults
 const filterAdultsMinus = document.querySelector('.filter_adults > .filter_plus-minus > .minus')
@@ -50,11 +23,12 @@ const filterAdultsNumber = document.querySelector('.filter_adults > .filter_plus
 const adultsCounter = document.getElementById('input_adults_count')
 // console.log(adultsCounter)
 let adultsNumber = 1;
+const adultsMaxNumber = 30;
 filterAdultsPlus.addEventListener('click', function() {
   // toggleChilndrenFilters(e);
   adultsNumber++;
-  if (adultsNumber >= 30) {
-    adultsNumber = 30
+  if (adultsNumber >= adultsMaxNumber) {
+    adultsNumber = adultsMaxNumber
     filterAdultsPlus.classList.add('plus_gray')
   } else {
     filterAdultsPlus.classList.remove('plus_gray')
@@ -77,7 +51,7 @@ filterAdultsMinus.addEventListener('click', function() {
   } else {
     filterAdultsMinus.classList.remove('minus_blue')
   }
-  if (adultsNumber < 30) {
+  if (adultsNumber < adultsMaxNumber) {
     filterAdultsPlus.classList.remove('plus_gray')
   }
   filterAdultsNumber.innerHTML = adultsNumber;
@@ -116,11 +90,12 @@ function createAgeSelect() {
 };
 
 let childrenNumber = 0;
+const childrenMaxNumber = 10;
 filterChildrenPlus.addEventListener('click', function() {
   // toggleChilndrenFilters(e);
   childrenNumber++;
-  if (childrenNumber >= 10) {
-    childrenNumber = 10
+  if (childrenNumber >= childrenMaxNumber) {
+    childrenNumber = childrenMaxNumber
     filterChildrenPlus.classList.add('plus_gray')
   } else {
     filterChildrenPlus.classList.remove('plus_gray')
@@ -137,7 +112,6 @@ filterChildrenPlus.addEventListener('click', function() {
   }
   document.querySelector('.child_age_selects').innerHTML = ''
   for (let i = 0; i < childrenNumber; i++) {
-    console.log(1)
     document.querySelector('.child_age_selects').insertAdjacentHTML('beforeend', createAgeSelect())
     document.querySelectorAll('.age_select').forEach(select => {
       select.addEventListener('click', function(e) {
@@ -163,7 +137,7 @@ filterChildrenMinus.addEventListener('click', function() {
     document.querySelector('.filter_wrapper').classList.remove('filter_wrapper_select')
     // document.querySelector('.age_select').classList.remove('age_select_without-text')
   } 
-  if (childrenNumber < 10) {
+  if (childrenNumber < childrenMaxNumber) {
     filterChildrenPlus.classList.remove('plus_gray')
   }
   if (childrenNumber >= 1) {
@@ -190,11 +164,12 @@ const filterRoomsPlus = document.querySelector('.filter_rooms > .filter_plus-min
 const filterRoomsNumber = document.querySelector('.filter_rooms > .filter_plus-minus > .filter_number')
 const roomsCounter = document.getElementById('input_rooms_count')
 let roomsNumber = 1;
+const roomsMaxNumber =30;
 filterRoomsPlus.addEventListener('click', function() {
   // toggleChilndrenFilters(e);
   roomsNumber++;
-  if (roomsNumber >= 30) {
-    roomsNumber = 30
+  if (roomsNumber >= roomsMaxNumber) {
+    roomsNumber = roomsMaxNumber
     filterRoomsPlus.classList.add('plus_gray')
   } else {
     filterRoomsPlus.classList.remove('plus_gray')
@@ -217,7 +192,7 @@ filterRoomsMinus.addEventListener('click', function() {
   } else {
     filterRoomsMinus.classList.remove('minus_blue')
   }
-  if (roomsNumber < 30) {
+  if (roomsNumber < roomsMaxNumber) {
     filterRoomsPlus.classList.remove('plus_gray')
   }
   filterRoomsNumber.innerHTML = roomsNumber;
