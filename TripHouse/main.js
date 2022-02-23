@@ -261,19 +261,30 @@ function createCard(data) {
   return `
     <div class="swiper-slide">
       <div class="content_img">
-        <img src="${data.imageUrl}" alt="${data.name}">
+        <div class="image_wrapper">
+          <img src="${data.imageUrl}" alt="${data.name}">
+        </div>
         <p class="accent-blue">${data.name}</p>
         <p class="secondary">${data.city}, ${data.country}</p>
       </div>
     </div>`
 };
 
-fetch ('https://fe-student-api.herokuapp.com/api/hotels/popular')
-  .then(response => response.json())
-  .then(data => 
-    (function (){
-      data.forEach((element) => {
-        swiper.appendSlide(createCard(element))
+// fetch ('https://fe-student-api.herokuapp.com/api/hotels/popular')
+//   .then(response => response.json())
+//   .then(data => 
+//     (function (){
+//       data.forEach((element) => {
+//         swiper.appendSlide(createCard(element))
+//       })
+//     }()));
+
+(function () {
+      fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
+      .then(response => response.json())
+      .then(data => {
+          data.forEach((element) => swiper.appendSlide(createCard(element)))
       })
-    }()));
+      .catch(error => console.error(error))
+  })();
     
