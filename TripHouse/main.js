@@ -227,9 +227,10 @@ filterRoomsMinus.addEventListener('click', function() {
 // 12.2
 const formButton = document.querySelector('.form_button');
 formButton.addEventListener('click', function() {
-  const childrenFetchParam = [].join(',');
+  const childrenGet = [...document.querySelectorAll('.age_select')].map(element => element.value).join(',')
   const search = document.querySelector('.destination_input').value;
-  fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${search}&adults=${adultsNumber}&children=${childrenFetchParam}&rooms=${roomsNumber}`)
+  const roomsNumberGet = document.querySelector('#input_rooms_count').textContent;
+  fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${search}&adults=${adultsNumber}&children=${childrenGet}&rooms=${roomsNumberGet}`)
   .then(response => response.json())
   .then(data => console.log(data))
 })
