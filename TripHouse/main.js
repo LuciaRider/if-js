@@ -270,15 +270,6 @@ function createCard(data) {
     </div>`
 };
 
-// fetch ('https://fe-student-api.herokuapp.com/api/hotels/popular')
-//   .then(response => response.json())
-//   .then(data => 
-//     (function (){
-//       data.forEach((element) => {
-//         swiper.appendSlide(createCard(element))
-//       })
-//     }()));
-
 (function () {
       fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
       .then(response => response.json())
