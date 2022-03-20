@@ -199,7 +199,10 @@ formButton.addEventListener('click', function() {
   const roomsNumberGet = document.querySelector('#input_rooms_count').textContent;
   fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${search}&adults=${adultsNumber}&children=${childrenGet}&rooms=${roomsNumberGet}`)
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => data.forEach(element => {
+    swiperSearchResult.appendSlide(createCard(element))
+  }
+  ))
 })
 
 // lesson-13
@@ -269,6 +272,38 @@ function getRequest(url) {
 //       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
 //     },
 //   ];
+
+const swiperSearchResult = new Swiper('.swiper_search-results', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 4,
+  spaceBetween: 40,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    
+    560: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    },
+    
+    992: {
+      slidesPerView: 4,
+      spaceBetween: 40
+    }
+  }
+});
 
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
