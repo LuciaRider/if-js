@@ -112,6 +112,7 @@ filterChildrenPlus.addEventListener('click', function() {
   }
   filterChildrenNumber.innerHTML = childrenNumber;
   childrenCounter.innerHTML = childrenNumber;
+  console.log(childrenNumber)
 })
 
 filterChildrenMinus.addEventListener('click', function() {
@@ -189,61 +190,83 @@ filterRoomsMinus.addEventListener('click', function() {
   filterRoomsNumber.innerHTML = roomsNumber;
 })
 
+// 12.2
+const formButton = document.querySelector('.form_button');
+formButton.addEventListener('click', function() {
+  const childrenFetchParam = [].join(',');
+  const search = document.querySelector('.destination_input').value;
+  fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${search}&adults=${adultsNumber}&children=${childrenFetchParam}&rooms=${roomsNumber}`)
+  .then(response => response.json())
+  .then(data => console.log(data))
+})
+
+// lesson-13
+function getRequest(url) {
+  const cachedValue = sessionStorage.getItem(url);
+  if (cachedValue) {
+    return Promise.resolve(JSON.parse(cachedValue))
+  } 
+  return fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      sessionStorage.setItem(url, JSON.stringify(data));
+      return data;
+    })
+}
+
 // Top-section_adaptive
 
-
 // Homes guests loves
-const data = [
-    {
-      name: 'Hotel Leopold',
-      city: 'Saint Petersburg',
-      country: 'Russia',
-      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-leopold_mflelk.jpg',
-    },
-    {
-      name: 'Apartment Sunshine',
-      city: 'Santa  Cruz de Tenerife',
-      country: 'Spain',
-      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/apartment-sunshine_vhdlel.jpg',
-    },
-    {
-      name: 'Villa Kunerad',
-      city: 'Vysokie Tatry',
-      country: 'Slowakia',
-      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/villa-kunerad_gdbqgv.jpg',
-    },
-    {
-      name: 'Hostel Friendship',
-      city: 'Berlin',
-      country: 'Germany',
-      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/hostel-friendship_aw6tn7.jpg',
-    },
-    {
-      name: 'Radisson Blu Hotel',
-      city: 'Kyiv',
-      country: 'Ukraine',
-      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/radisson-blu-hotel_jwtowg.jpg',
-    },
-    {
-      name: 'Paradise Hotel',
-      city: 'Guadalupe',
-      country: 'Mexico',
-      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/paradise-hotel_i6whae.jpg',
-    },
-    {
-      name: 'Hotel Grindewald',
-      city: 'Interlaken',
-      country: 'Switzerland',
-      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-grindewald_zsjsmy.jpg',
-    },
-    {
-      name: 'The Andaman Resort',
-      city: 'Port Dickson',
-      country: 'Malaysia',
-      imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
-    },
-  ];
-
+// const data = [
+//     {
+//       name: 'Hotel Leopold',
+//       city: 'Saint Petersburg',
+//       country: 'Russia',
+//       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-leopold_mflelk.jpg',
+//     },
+//     {
+//       name: 'Apartment Sunshine',
+//       city: 'Santa  Cruz de Tenerife',
+//       country: 'Spain',
+//       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/apartment-sunshine_vhdlel.jpg',
+//     },
+//     {
+//       name: 'Villa Kunerad',
+//       city: 'Vysokie Tatry',
+//       country: 'Slowakia',
+//       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/villa-kunerad_gdbqgv.jpg',
+//     },
+//     {
+//       name: 'Hostel Friendship',
+//       city: 'Berlin',
+//       country: 'Germany',
+//       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379364/fe/hostel-friendship_aw6tn7.jpg',
+//     },
+//     {
+//       name: 'Radisson Blu Hotel',
+//       city: 'Kyiv',
+//       country: 'Ukraine',
+//       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/radisson-blu-hotel_jwtowg.jpg',
+//     },
+//     {
+//       name: 'Paradise Hotel',
+//       city: 'Guadalupe',
+//       country: 'Mexico',
+//       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/paradise-hotel_i6whae.jpg',
+//     },
+//     {
+//       name: 'Hotel Grindewald',
+//       city: 'Interlaken',
+//       country: 'Switzerland',
+//       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/hotel-grindewald_zsjsmy.jpg',
+//     },
+//     {
+//       name: 'The Andaman Resort',
+//       city: 'Port Dickson',
+//       country: 'Malaysia',
+//       imageUrl: 'https://res.cloudinary.com/intellectfox/image/upload/v1610379365/fe/the-andaman-resort_d2xksj.jpg',
+//     },
+//   ];
 
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
@@ -288,8 +311,14 @@ function createCard(data) {
     </div>`
 };
 
-console.log(swiper)
+// data.forEach((element) => {
+//   swiper.appendSlide(createCard(element))
+// });
 
-data.forEach((element) => {
-  swiper.appendSlide(createCard(element))
-});
+fetch ('https://fe-student-api.herokuapp.com/api/hotels/popular')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach((element) => {
+      swiper.appendSlide(createCard(element))
+    });
+  })
