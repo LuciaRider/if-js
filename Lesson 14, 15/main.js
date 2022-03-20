@@ -9,9 +9,6 @@ btn.addEventListener('click', (e) => {
     e.preventDefault();
     fetch('https://fe-student-api.herokuapp.com/api/file', {
         method: 'POST',
-        headers: {
-            'Content-type': 'multipart/form-data'
-        },
         body: fData
     }).then((response) => {
         console.log(response.json())
