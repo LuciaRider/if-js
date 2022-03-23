@@ -1,3 +1,5 @@
+import {createAgeSelect} from './modules/createAgeSelect.js';
+
 // Top-section
 const filterPeople = document.querySelector('.children');
 const filterPeopleOptions = document.querySelector('.filter_wrapper')
@@ -65,20 +67,20 @@ const filterChildrenPlus = document.querySelector('.filter_children > .filter_pl
 const filterChildrenNumber = document.querySelector('.filter_children > .filter_plus-minus > .filter_number')
 const childrenCounter = document.getElementById('input_children_count')
 
-function createAgeSelect() {
-  return `
-  <select class="age_select age_select_adaptive" name="age" id="age">
-    ${createOptions(17)}
-  </select>`
-};
+// function createAgeSelect() {
+//   return `
+//   <select class="age_select age_select_adaptive" name="age" id="age">
+//     ${createOptions(17)}
+//   </select>`
+// };
 
-function createOptions(n) {
-  let options = '';
-  for (let i=0; i<=n; i++) {
-    options += `<option value="${i}">${i} year old</option>`
-  }
-  return options
-}
+// function createOptions(n) {
+//   let options = '';
+//   for (let i=0; i<=n; i++) {
+//     options += `<option value="${i}">${i} year old</option>`
+//   }
+//   return options
+// }
 
 let childrenNumber = 0;
 const childrenMaxNumber = 10;
@@ -205,20 +207,6 @@ formButton.addEventListener('click', function() {
   ))
 })
 
-// lesson-13
-function getRequest(url) {
-  const cachedValue = sessionStorage.getItem(url);
-  if (cachedValue) {
-    return Promise.resolve(JSON.parse(cachedValue))
-  } 
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      sessionStorage.setItem(url, JSON.stringify(data));
-      return data;
-    })
-}
-
 // Top-section_adaptive
 
 // Homes guests loves
@@ -300,7 +288,6 @@ function createCard(data) {
     </div>`
 };
 
-<<<<<<< HEAD
 (function () {
       fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
       .then(response => response.json())
@@ -310,17 +297,3 @@ function createCard(data) {
       .catch(error => console.error(error))
   })();
     
-=======
-// data.forEach((element) => {
-//   swiper.appendSlide(createCard(element))
-// });
-
-(function () {
-  fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
-  .then(response => response.json())
-  .then(data => {
-      data.forEach((element) => swiper.appendSlide(createCard(element)))
-  })
-  .catch(error => console.error(error))
-})();
->>>>>>> lesson-12.2
