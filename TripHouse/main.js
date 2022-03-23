@@ -191,13 +191,18 @@ filterRoomsMinus.addEventListener('click', function() {
 })
 
 // 12.2
+
 const formButton = document.querySelector('.form_button');
 formButton.addEventListener('click', function() {
-  const childrenFetchParam = [].join(',');
+  const childrenGet = [...document.querySelectorAll('.age_select')].map(element => element.value).join(',')
   const search = document.querySelector('.destination_input').value;
-  fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${search}&adults=${adultsNumber}&children=${childrenFetchParam}&rooms=${roomsNumber}`)
+  const roomsNumberGet = document.querySelector('#input_rooms_count').textContent;
+  fetch(`https://fe-student-api.herokuapp.com/api/hotels?search=${search}&adults=${adultsNumber}&children=${childrenGet}&rooms=${roomsNumberGet}`)
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => data.forEach(element => {
+    swiperSearchResult.appendSlide(createCard(element))
+  }
+  ))
 })
 
 // lesson-13
@@ -217,6 +222,38 @@ function getRequest(url) {
 // Top-section_adaptive
 
 // Homes guests loves
+
+const swiperSearchResult = new Swiper('.swiper_search-results', {
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 4,
+  spaceBetween: 40,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    
+    560: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    },
+    
+    992: {
+      slidesPerView: 4,
+      spaceBetween: 40
+    }
+  }
+});
 
 const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
@@ -263,6 +300,7 @@ function createCard(data) {
     </div>`
 };
 
+<<<<<<< HEAD
 (function () {
       fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
       .then(response => response.json())
@@ -272,3 +310,17 @@ function createCard(data) {
       .catch(error => console.error(error))
   })();
     
+=======
+// data.forEach((element) => {
+//   swiper.appendSlide(createCard(element))
+// });
+
+(function () {
+  fetch('https://fe-student-api.herokuapp.com/api/hotels/popular')
+  .then(response => response.json())
+  .then(data => {
+      data.forEach((element) => swiper.appendSlide(createCard(element)))
+  })
+  .catch(error => console.error(error))
+})();
+>>>>>>> lesson-12.2
