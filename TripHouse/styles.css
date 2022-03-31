@@ -541,6 +541,14 @@ header {
     order: 3;
 }
 
+.available {
+    display: none;
+}
+
+.available-active {
+    display: block;
+}
+
 .homes_container {
     margin: 0 auto;
 }

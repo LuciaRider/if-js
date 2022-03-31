@@ -191,9 +191,11 @@ filterRoomsMinus.addEventListener('click', function() {
 })
 
 // 12.2
+const available = document.querySelector('.available');
 
 const formButton = document.querySelector('.form_button');
 formButton.addEventListener('click', function() {
+  available.classList.add('available-active')
   const childrenGet = [...document.querySelectorAll('.age_select')].map(element => element.value).join(',')
   const search = document.querySelector('.destination_input').value;
   const roomsNumberGet = document.querySelector('#input_rooms_count').textContent;
